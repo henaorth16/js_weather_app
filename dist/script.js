@@ -8,7 +8,6 @@ const image = document.querySelector("img");
 
 const apiKey = "c5c695b9f5a085e8c1f671f453534e43";
 
-// console.log(navigator.geolocation);
 
 async function getWeatherInfo(query) {
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${apiKey}`;
@@ -18,6 +17,7 @@ async function getWeatherInfo(query) {
   if (data.cod == 404) {
     console.log(data);
     measure.innerText = data.message;
+    image.setAttribute("src", "./images/empty.png")
   } else {
     image.setAttribute(
       "src",
@@ -29,10 +29,6 @@ async function getWeatherInfo(query) {
 
     city.textContent = `${data.name}`;
 
-    if (iconWrapper.contains(image)) {
-      console.log("true");
-    }
-
     iconWrapper.insertBefore(image, measure);
     measure.innerText = `${(data.main.temp - 273.15).toFixed(1)}°c`;
   }
@@ -40,5 +36,21 @@ async function getWeatherInfo(query) {
 
 search.addEventListener("click", () => {
   var query = input.value;
+  if (query == "") {
+    console.log("empty data");
+  }
   getWeatherInfo(query);
+});
+
+window.addEventListener("keyup", (e) => {
+  var query = input.value;
+  if (query == "") {
+    console.log("empty data");
+  }
+  switch (e.key) {
+    case "Enter":
+      getWeatherInfo(query);
+    case "Space":
+      getWeatherInfo(query);
+  }
 });
