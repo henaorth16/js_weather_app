@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+</head>
+<body class="h-screen bg-primary flex items-center justify-center">
+    <div class="flex w-80 h-96 bg-green-500 rounded-md flex-col items-center relative">
+        <h1 class="text-xl font-bold mt-3 text-white">Weather App Using JS</h1>
+        <div class="flex px-3 justify-between w-full items-center mt-3">
+            <input type="text" class="px-5 py-2 outline-none border-none rounded-3xl">
+            <i id="search" class="las la-search text-xl text-white mr-5 cursor-pointer"></i>
+        </div>
+        <div id="icon-wrapper" class="h-52 absolute bg-blue-500 bottom-5 left-5 right-5 flex flex-col items-center">
+            <h2 id="measure" class="text-3xl font-bold mt-2 text-white">loading</h2>
+            <div class="flex">
+                    <h1 id="city" class="text-2xl font-bold text-white"></h1><span id="humidity"></span>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
