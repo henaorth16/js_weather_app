@@ -4,6 +4,7 @@ const measure = document.getElementById("measure");
 const search = document.getElementById("search");
 const input = document.querySelector('input[type="text"]');
 const city = document.querySelector("#city");
+const image = document.querySelector("img");
 
 const apiKey = "c5c695b9f5a085e8c1f671f453534e43";
 
@@ -18,7 +19,6 @@ async function getWeatherInfo(query) {
     console.log(data);
     measure.innerText = data.message;
   } else {
-    const image = document.createElement("img");
     image.setAttribute(
       "src",
       `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
